@@ -3,10 +3,12 @@ import logo from "../../assets/logo.svg"
 import Google from "../../assets/google.png"
 import bghome from "../../assets/bghome.png"
 import classic from "../../assets/products/Classic.png"
-import cart from "../../assets/cart.svg"
+import { Star, Basket } from "@phosphor-icons/react/dist/ssr";
+import Login from "./login/page";
 export default function Home() {
   return (
-    <><div className="grid gap-20">
+    <>
+    <div className="grid gap-20">
       <div className="flex justify-around items-center">
         <Image src={logo} width={100} height={100} alt=""></Image>
         <div className="flex gap-1">
@@ -14,7 +16,7 @@ export default function Home() {
             Logar com o Google <Image height={25} width={25} src={Google} alt="" />
           </button>
           <button className="flex justify-center items-center gap-1 bg-black text-gray-500 h-10 w-10 cursor-pointer rounded-lg" type="submit">
-            <Image height={25} width={25} src={cart} alt="" />
+            <Basket size={27} color="#ffff" weight="fill" />
           </button>
         </div>
 
@@ -29,47 +31,14 @@ export default function Home() {
       </div>
       <div className="flex justify-center">
         <div className="grid gap-2 justify-center items-center grid-cols-3 w-215">
-          <div className="flex items-center bg-emerald-100 rounded-lg w-70">
+          <div className="flex items-center bg-emerald-50 rounded-lg w-70">
             <Image src={classic} width={100} height={100} alt="" />
-            <div>
+            <div className="grid gap-2">
               <p className="font-bold text-green-700">Coffee Classic</p>
-              <p>Description <span>5.0</span></p>
-              <div className="flex gap-1">
-                <span>R$10,00</span>
-                <button className="bg-black text-blue-50 rounded-2xl w-25 cursor-pointer">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center bg-emerald-100 rounded-lg w-70">
-            <Image src={classic} width={100} height={100} alt="" />
-            <div>
-              <p className="font-bold text-green-700">Coffee Classic</p>
-              <p>Description <span>5.0</span></p>
-              <div className="flex gap-1">
-                <span>R$10,00</span>
-                <button className="bg-black text-blue-50 rounded-2xl w-25 cursor-pointer">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center bg-emerald-100 rounded-lg w-70">
-            <Image src={classic} width={100} height={100} alt="" />
-            <div>
-              <p className="font-bold text-green-700">Coffee Classic</p>
-              <p>Description <span>5.0</span></p>
-              <div className="flex gap-1">
-                <span>R$10,00</span>
-                <button className="bg-black text-blue-50 rounded-2xl w-25 cursor-pointer">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center bg-emerald-100 rounded-lg w-70">
-            <Image src={classic} width={100} height={100} alt="" />
-            <div>
-              <p className="font-bold text-green-700">Coffee Classic</p>
-              <p>Description <span>5.0</span></p>
-              <div className="flex gap-1">
-                <span>R$10,00</span>
-                <button className="bg-black text-blue-50 rounded-2xl w-25 cursor-pointer">Add to Cart</button>
+              <p className="flex gap-1">Description <span className="rounded-lg w-12 flex items-center justify-center bg-amber-50">5.0<Star size={15} weight="fill" /></span></p>
+              <div className="flex gap-1 items-center">
+                <span className="font-bold text-emerald-950">R$10,00</span>
+                <button className="bg-black text-blue-50 rounded-lg w-25 h-8 cursor-pointer">Add to Cart</button>
               </div>
             </div>
           </div>
