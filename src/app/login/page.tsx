@@ -8,7 +8,6 @@ export default function Login() {
       <div className="flex justify-center items-center min-h-screen">
         <div className="flex flex-col items-center text-center p-10">
           <div className="flex flex-col items-center">
-            <Image src={logo} height={100} width={100} alt="Logo" />
             <Image
               src={bghome}
               height={500}

@@ -4,7 +4,6 @@ import Google from "../../assets/google.png"
 import bghome from "../../assets/bghome.png"
 import classic from "../../assets/products/Classic.png"
 import { Star, Basket } from "@phosphor-icons/react/dist/ssr";
-import Login from "./login/page";
 export default function Home() {
   return (
     <>
@@ -15,9 +14,9 @@ export default function Home() {
           <button className="flex justify-center items-center gap-1 bg-green-100 text-gray-500 h-10 w-50 cursor-pointer rounded-lg" type="submit">
             Logar com o Google <Image height={25} width={25} src={Google} alt="" />
           </button>
-          <button className="flex justify-center items-center gap-1 bg-black text-gray-500 h-10 w-10 cursor-pointer rounded-lg" type="submit">
+          <a href="/cart" className="flex justify-center items-center gap-1 bg-black text-gray-500 h-10 w-10 cursor-pointer rounded-lg" type="submit">
             <Basket size={27} color="#ffff" weight="fill" />
-          </button>
+          </a>
         </div>
 
       </div>
