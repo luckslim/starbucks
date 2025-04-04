@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from "next/font/google"
+import { CartProvider } from "./context/context";
 const roboto = Roboto({
-  weight:["400","500","700","900"],
+  weight: ["400", "500", "700", "900"],
   style: ["normal"],
-  subsets:['latin'],
+  subsets: ['latin'],
 })
 export const metadata: Metadata = {
   title: "StarBucks",
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body
         className={roboto.className}
       >
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );
