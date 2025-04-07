@@ -34,7 +34,7 @@ export default function Home() {
   const router = useRouter();
 
   function handleClick() {
-    router.push('/cart'); // não dá pra passar `state`, só via URL ou storage
+    router.push('/cart');
   }
   function handleIncrease(id: number) {
     setProducts((prev) =>

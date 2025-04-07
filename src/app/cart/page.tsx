@@ -3,7 +3,7 @@ import Image from "next/image";
 import bghome from "../../../assets/bghome.png"
 import { useCart } from "../context/context";
 export default function Cart() {
-    const { cart } = useCart()
+    const { cart,removeFromCart, calculateTotal } = useCart()
     console.log(cart)
     return (
 
@@ -20,21 +20,19 @@ export default function Cart() {
             </div>
             <div className="grid justify-around text-center bg-gray-50 p-auto rounded-lg w-100 ">
                 {cart.map((product) => (
-                    <div className="flex justify-around items-center w-100 text-center">
+                    <div className="flex justify-around items-center w-100 text-center border-b-1 border-b-gray-200">
                         <Image src={product.imageURL} height={100} width={100} alt="" />
-                        <div>
-                            <p>{product.name}</p>
-                            <p>{product.price}</p>
-                            <nav className="flex gap-1">
-                                <button className="bg-green-200 w-10 rounded-lg text-green-700 font-bold text-2xl cursor-pointer" type="submit">-</button>
-                                <input className="border-0 rounded-lg text-center bg-gray-100 w-10 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" type="number" />
-                                <button className="bg-green-200 w-10 rounded-lg text-green-700 font-bold text-2xl cursor-pointer" type="submit">+</button>
-                            </nav>
+                        <div className="flex flex-col gap-1 items-center text-center justify-center ">
+                            <p className="text-green-700 font-bold">{product.name}</p>
+                            <p className="text-blue-500 font-extralight">R${(product.price).toFixed(2)}</p>
+                            <p className="text-blue-500 font-extralight">{product.quantity}{'  '}{product.quantity==1?'item':'itens'}</p>
+                            <button onClick={()=>removeFromCart(product.id)} className="bg-indigo-200 rounded-lg w-20 h-8 text-indigo-700 font-semibold cursor-pointer">Remover</button>
                         </div>
                     </div>
                 ))}
+                <div>Total: R$ {calculateTotal()}</div>
 
-                <button className="flex justify-center items-center gap-2 font-bold text-white bg-black h-13   shadow-md hover:bg-gray-800 transition duration-300">
+                <button className="flex justify-center items-center gap-2 font-bold text-white bg-black h-13 rounded-bl-2xl rounded-br-2xl  shadow-md hover:bg-gray-800 transition duration-300">
                     Fazer pagamento
                 </button>
             </div>

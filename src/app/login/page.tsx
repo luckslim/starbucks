@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
 import logo from "../../../assets/logo.svg";
 import bghome from "../../../assets/bghome.png";
 import google from "../../../assets/google.png";
+import { signIn } from "next-auth/react";
 export default function Login() {
   return (
     <>
@@ -24,7 +26,7 @@ export default function Login() {
               “To inspire and nurture the human spirit–one person, one cup and
               one neighborhood at a time.”
             </p>
-            <button className="flex justify-center items-center gap-2 font-bold text-white bg-black h-13 w-70 rounded-lg shadow-md hover:bg-gray-800 transition duration-300">
+            <button onClick={()=>signIn('google')} className="flex justify-center items-center gap-2 font-bold text-white bg-black h-13 w-70 rounded-lg shadow-md hover:bg-gray-800 transition duration-300">
               Logar com Google
               <Image src={google} height={30} width={30} alt="Google Logo" />
             </button>
