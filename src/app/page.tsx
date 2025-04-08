@@ -66,10 +66,10 @@ export default function Home() {
           <div className="flex justify-around items-center">
             <Image src={logo} width={100} height={100} alt="" />
             <div className="flex gap-1">
-              <button onClick={handleLogout} className="flex justify-center items-center gap-1 bg-green-100 text-gray-500 h-10 w-50 cursor-pointer rounded-lg" type="submit">
-                {session.data.user?.name} <Image height={25} width={25} src={Google} alt="" />
+              <button onClick={handleLogout} className="flex justify-around items-center gap-1 bg-black text-gray-50 h-10 w-50 cursor-pointer rounded-lg" type="submit">
+                <img className="w-8 rounded-xl " src={session.data.user?.image ?? ""} alt="" /> {session.data.user?.name}
               </button>
-              <a onClick={handleClick} className="flex justify-center items-center gap-1 bg-black text-gray-500 h-10 w-10 cursor-pointer rounded-lg">
+              <a onClick={handleClick} className="flex justify-center items-center gap-1 bg-green-300 text-gray-500 h-10 w-10 cursor-pointer rounded-lg">
                 <Basket size={27} color="#ffff" weight="fill" />
               </a>
             </div>
