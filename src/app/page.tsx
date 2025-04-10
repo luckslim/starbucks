@@ -69,8 +69,8 @@ export default function Home() {
               <button onClick={handleLogout} className="flex justify-around items-center gap-1 bg-black text-gray-50 h-10 w-50 cursor-pointer rounded-lg" type="submit">
                 <img className="w-8 rounded-xl " src={session.data.user?.image ?? ""} alt="" /> {session.data.user?.name}
               </button>
-              <a onClick={handleClick} className="flex justify-center items-center gap-1 bg-green-300 text-gray-500 h-10 w-10 cursor-pointer rounded-lg">
-                <Basket size={27} color="#ffff" weight="fill" />
+              <a onClick={handleClick} className="flex justify-center items-center gap-1 bg-gray-100 text-gray-500 h-10 w-10 cursor-pointer rounded-lg">
+                <Basket size={27} className="text-blue-600" weight="fill" />
               </a>
             </div>
           </div>
