@@ -1,17 +1,20 @@
 import { stripe } from "@/app/lib/stripe";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  const cart = body.cart;
+
+  const line_items = cart.map((item:any) => ({
+    price: item.idStripe,
+    quantity: item.quantity,
+  }));
+
   const checkoutSession = await stripe.checkout.sessions.create({
     success_url: `${process.env.NEXT_URL}/sucesso`,
     cancel_url: `${process.env.NEXT_URL}/`,
-    mode: "subscription",
-    line_items: [
-      {
-        price: "price_1RBhO0QEoaQM13LuGnxQEn08",
-        quantity: 1,
-      },
-    ],
+    mode: "payment",
+    line_items,
   });
 
   return NextResponse.json({ checkoutUrl: checkoutSession.url });

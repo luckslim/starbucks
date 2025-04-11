@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import Login from "./login/page";
 export interface Products {
+  idStripe: string;
   id: number;
   name: string;
   description: string;
@@ -24,11 +25,11 @@ export interface Products {
   quantity: number;
 }
 const initialProduct: Products[] = [
-  { id: 1, name: "Café Tradicional", description: "Good Coffee", quantity: 1, price: 10.80, imageURL: classic },
-  { id: 2, name: "ice Chocolate", description: "Good Coffee", quantity: 1, price: 12.40, imageURL: icechocolate },
-  { id: 3, name: "ice Matcha", description: "Good Coffee", quantity: 1, price: 13.50, imageURL: icematcha },
-  { id: 4, name: "ice Tea", description: "Good Coffee", quantity: 1, price: 7.40, imageURL: icetea },
-  { id: 5, name: "ice Ship", description: "Good Coffee", quantity: 1, price: 10.50, imageURL: iceship },
+  {idStripe:"price_1RBhP6QEoaQM13Lua5sOfWKR", id: 1, name: "Café Tradicional", description: "Good Coffee", quantity: 1, price: 10.80, imageURL: classic },
+  {idStripe:"price_1RBhNLQEoaQM13LuAFQrb07U", id: 2, name: "ice Chocolate", description: "Good Coffee", quantity: 1, price: 12.40, imageURL: icechocolate },
+  {idStripe:"price_1RCiChQEoaQM13Luy0ZmHkDB", id: 3, name: "ice Matcha", description: "Good Coffee", quantity: 1, price: 13.50, imageURL: icematcha },
+  {idStripe:"price_1RBgs1QEoaQM13LuJYNWOqzn", id: 4, name: "ice Tea", description: "Good Coffee", quantity: 1, price: 7.40, imageURL: icetea },
+  {idStripe:"price_1RBhPuQEoaQM13LunMurG3pe", id: 5, name: "ice Ship", description: "Good Coffee", quantity: 1, price: 10.50, imageURL: iceship },
 ];
 export default function Home() {
   const [products, setProducts] = useState<Products[]>(initialProduct);

@@ -3,8 +3,28 @@ import Image from "next/image";
 import bghome from "../../../assets/bghome.png"
 import { useCart } from "../context/context";
 export default function Cart() {
-    const { cart,removeFromCart, calculateTotal } = useCart()
-    console.log(cart)
+    const {cart, removeFromCart, calculateTotal } = useCart()
+    async function checkoutButton(){
+        try{
+            const response = await fetch("/api/checkout", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ cart }),
+              });
+        
+              const data = await response.json();
+        
+              if (data.checkoutUrl) {
+                window.location.href = data.checkoutUrl;
+              } else {
+                console.error("Erro ao criar sessão de checkout:", data);
+              }
+        }catch(error){
+            console.log('erro ao iniciar checkout', error)
+        }
+    }
     return (
 
         <div className="flex justify-around items-center text-center mt-10">
@@ -32,7 +52,7 @@ export default function Cart() {
                 ))}
                 <div>Total: R$ {calculateTotal()}</div>
 
-                <button className="flex justify-center items-center gap-2 font-bold text-white bg-black h-13 rounded-bl-2xl rounded-br-2xl  shadow-md hover:bg-gray-800 transition duration-300">
+                <button onClick={checkoutButton} className="flex justify-center items-center gap-2 font-bold text-white bg-black h-13 rounded-bl-2xl rounded-br-2xl  shadow-md hover:bg-gray-800 transition duration-300">
                     Fazer pagamento
                 </button>
             </div>
